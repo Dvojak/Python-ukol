@@ -192,5 +192,5 @@ def password(number):
      for n in range(3):
          password += str(random.randint(0, 9))
      print(password)
-number = input("How many passwords do you need?:")
+number = input("Kolik hesel potřebujete?:")
 password(number)
