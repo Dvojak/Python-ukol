@@ -1,4 +1,6 @@
 # Znakové řetězce mohou být uvozeny jednoduchými i dvojitými uvozovkami
+
+
 course_name = "Python programming"
 
 '''
@@ -150,7 +152,7 @@ Použijte kombinaci různý možností pro práci s řetězci (včetně různýc
 funkční kód, tím lepší).
 
 1. Převeďte "česky" zadané datum - např. 12. 10. 2020 - do podoby "databázové" podoby - např. 2020-10-12
-2. Vytvořte funkci, která vyrobí ze zadaného sousloví:
+2.z Vytvořte funkci, která vyrobí e zadaného sousloví:
    a) identifikátor pro proměnné používané v Pythonu - např. To je proměnná v Pythonu = to_je_promenna_v_pythonu
    b) identifikátor pro camel syntax v JS - např. To je proměnná v Pythonu = toJePromennaVPythonu 
    Obě možnosti by měly být vyřešeny v jedné funkci s využitím parametrů.
@@ -158,3 +160,37 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+
+datum = input("Zadejte datum ve formátu [12. 10. 2020]: ")
+print(datum[-4:],"-",datum[4:6],"-",datum[:3])
+
+######################################################
+
+def two_b(souslovi):
+    slova = souslovi.lower().split()
+    return slova[0] + ''.join(word.capitalize() for word in slova[1:])
+souslovi = input("Zadejte souslovi:")
+print(souslovi.replace(" ", "_"))
+print(two_b(souslovi))
+
+######################################################
+import random
+import string
+
+def password(number):
+    for i in range (int(number)):
+     up_letters = string.ascii_uppercase
+     low_letters = string.ascii_lowercase
+     spec_letters = string.punctuation
+     password = ""
+     for n in range (3):
+        password += random.choice(up_letters)
+     for n in range(3):
+         password += random.choice(low_letters)
+     for n in range(1):
+         password += random.choice(spec_letters)
+     for n in range(3):
+         password += str(random.randint(0, 9))
+     print(password)
+number = input("How many passwords do you need?:")
+password(number)
