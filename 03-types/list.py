@@ -310,4 +310,20 @@ print(combine)
 # Kromě jména, věku a pohlaví v něm budou vypsána i čísla indexů (jako 1. sloupec). Oddělovačem bude středník.
 # Záznamy budou seřazeny podle věku (sestupně).
 
+
+###########################################################################################################
 print(f'\n*************************************\nCvičení 3\n*************************************')
+osoby = (('Martin',50,'muž'),('Oliver', 23, 'muž'), ('Karla',18,'žena'),('Marketa',29,'žena'))
+persons += osoby
+print(persons)
+###########################################################################################################
+women = [item[0] for item in persons if item[2] == 'žena']
+for woman in women:
+    print(f"{woman}\n{'-' * len(woman)}")
+###########################################################################################################
+ipeople = list(filter(lambda person: "i" in person[0].lower(), persons))
+
+csv =  "".join([f"{i}-{p[0]}-{p[1]}-{p[2]}\n" for i, p in enumerate(ipeople)])
+print(csv)
+
+
